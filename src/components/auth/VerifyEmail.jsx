@@ -35,6 +35,7 @@ const VerifyEmail = () => {
   const handleLoginClick = () => {
     navigate('/auth/login');
   }
+
   useEffect(() => {
     runVerification()
   }, []);

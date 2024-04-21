@@ -42,8 +42,8 @@ class AuthService {
     return this.api.post('/auth/password-reset-email', requestBody);
   }
 
-  passwordReset = () => {
-    return this.api.post('/auth/password-reset');
+  passwordReset = (requestBody) => {
+    return this.api.post('/auth/password-reset', requestBody);
   }
 }
 

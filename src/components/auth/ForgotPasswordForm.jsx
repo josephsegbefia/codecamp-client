@@ -28,11 +28,12 @@ const ForgotPasswordForm = () => {
     setIsLoading(true);
     authService.passwordResetEmail(requestBody)
       .then((response) => {
-        success(response.data.message);
+        setSuccess(response.data.message);
         setIsLoading(false);
       })
       .catch((error) => {
         setError(error.response.data.message);
+        setIsLoading(false);
       })
   }
 
