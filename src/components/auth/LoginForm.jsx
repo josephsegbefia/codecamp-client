@@ -83,7 +83,7 @@ const LoginForm = () => {
               <Link to={"/auth/signup"} style={{color: "teal"}}>Create one</Link>
             </Text>
             <Text>Don&apos;t remember your password? &nbsp;
-              <Link to={"/auth/password-reset"} style={{color: "teal"}}>Reset it here</Link>
+              <Link to={"/auth/forgot-password"} style={{color: "teal"}}>Reset it here</Link>
             </Text>
             {/* Submit button */}
             <Button

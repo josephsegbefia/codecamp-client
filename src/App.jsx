@@ -6,6 +6,8 @@ import Home from './components/Home';
 import LoginForm from './components/auth/LoginForm';
 import SignupForm from './components/auth/SignupForm';
 import VerifyEmail from './components/auth/VerifyEmail';
+import ForgotPasswordForm from './components/auth/ForgotPasswordForm';
+import PasswordResetForm from './components/auth/PasswordResetForm';
 
 
 function App() {
@@ -17,6 +19,8 @@ function App() {
         <Route path = '/auth/login' element = {<LoginForm />} />
         <Route path = '/auth/signup' element = {<SignupForm />} />
         <Route path = '/auth/verify-email' element={<VerifyEmail />} />
+        <Route path = '/auth/forgot-password' element = {<ForgotPasswordForm />} />
+        <Route path = '/auth/password-reset' element = {<PasswordResetForm />}/>
       </Routes>
     </Router>
   )

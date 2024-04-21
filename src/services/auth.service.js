@@ -37,6 +37,14 @@ class AuthService {
   verifyEmail = requestBody => {
     return this.api.post('/auth/verify-email', requestBody);
   }
+
+  passwordResetEmail = requestBody => {
+    return this.api.post('/auth/password-reset-email', requestBody);
+  }
+
+  passwordReset = () => {
+    return this.api.post('/auth/password-reset');
+  }
 }
 
 const authService = new AuthService();
