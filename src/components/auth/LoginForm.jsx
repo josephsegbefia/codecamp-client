@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom'
-import { Flex, Box, Heading, FormControl, FormLabel, Input, Button, InputGroup, InputRightElement, Icon } from '@chakra-ui/react';
+import { useNavigate, Link } from 'react-router-dom'
+import { Flex, Text, Box, Heading, FormControl, FormLabel, Input, Button, InputGroup, InputRightElement, Icon } from '@chakra-ui/react';
 import { AiFillEyeInvisible } from "react-icons/ai";
 import { AiFillEye } from "react-icons/ai";
 import authService from '../../services/auth.service';
@@ -41,7 +41,7 @@ const LoginForm = () => {
 
   }
   return (
-    <Flex width = "full" align = "center" justifyContent = "center">
+    <Flex width = "full" align = "center" justifyContent = "center" mt = "10rem">
       <Box p = {8} mt = {8} width={["100%", "80%", "60%", "40%"]} borderWidth={1} borderRadius={8} boxShadow = "lg">
         <Box textAlign = "center">
           <Heading>Login</Heading>
@@ -56,7 +56,7 @@ const LoginForm = () => {
               <FormLabel>Email</FormLabel>
               <Input
                 type = "email"
-                placeholder = "danielakusevi@gmail.com"
+                placeholder = ""
                 onChange = {(e) => setEmail(e.target.value)}
                 value = {email}
               />
@@ -68,7 +68,7 @@ const LoginForm = () => {
               <InputGroup>
                 <Input
                   type = {showPassword ? "text" : "password"}
-                  placeholder = "******"
+                  placeholder = ""
                   onChange = {(e) => setPassword(e.target.value)}
                   value = {password}
                 />
@@ -79,9 +79,15 @@ const LoginForm = () => {
                 </InputRightElement>
               </InputGroup>
             </FormControl>
-
+            <Text>Don&apos;t have an account? &nbsp;
+              <Link to={"/auth/signup"} style={{color: "teal"}}>Create one</Link>
+            </Text>
+            <Text>Don&apos;t remember your password? &nbsp;
+              <Link to={"/auth/password-reset"} style={{color: "teal"}}>Reset it here</Link>
+            </Text>
             {/* Submit button */}
             <Button
+              mt={5}
               width = "full"
               type = "submit"
               colorScheme = "teal"
