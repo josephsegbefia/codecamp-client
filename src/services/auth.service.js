@@ -33,6 +33,10 @@ class AuthService {
   verify = () => {
     return this.api.get('/auth/verify');
   }
+
+  verifyEmail = requestBody => {
+    return this.api.post('/auth/verify-email', requestBody);
+  }
 }
 
 const authService = new AuthService();

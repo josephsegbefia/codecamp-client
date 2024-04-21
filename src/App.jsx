@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import Home from './components/Home';
 import LoginForm from './components/auth/LoginForm';
 import SignupForm from './components/auth/SignupForm';
+import VerifyEmail from './components/auth/VerifyEmail';
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
       <Route path = '/' element = {<Home />} />
         <Route path = '/auth/login' element = {<LoginForm />} />
         <Route path = '/auth/signup' element = {<SignupForm />} />
+        <Route path = '/auth/verify-email' element={<VerifyEmail />} />
       </Routes>
     </Router>
   )
