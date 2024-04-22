@@ -1,5 +1,3 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import {
   Box,
   Flex,
@@ -26,19 +24,8 @@ import {
 export default function WithSubnavigation() {
   const { isOpen, onToggle } = useDisclosure();
 
-  const navigate = useNavigate()
 
-  const gotoLoginForm = () => {
-    navigate('/auth/login');
-  }
 
-  const gotoSignUpForm = () => {
-    navigate('/auth/signup');
-  }
-
-  const gotoHome = () => {
-    navigate('/');
-  }
   return (
     <Box>
       <Flex
@@ -69,11 +56,12 @@ export default function WithSubnavigation() {
             textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
             fontFamily={'heading'}
             color={useColorModeValue('gray.800', 'white')}
-            onClick = {gotoHome}
+            // onClick = {gotoHome}
             as = {'a'}
+            href = {'/'}
             cursor = {'pointer'}
           >
-            codecamp
+            c o d e c a m p
           </Text>
           <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
             <DesktopNav />
@@ -85,7 +73,7 @@ export default function WithSubnavigation() {
           direction={'row'}
           spacing={6}
         >
-          <Button as={'a'} fontSize={'sm'} fontWeight={400} variant={'solid'} href={'#'} colorScheme = "transparent" _hover={{color: "gray.300"}} onClick = {gotoLoginForm}>
+          <Button as={'a'} fontSize={'sm'} fontWeight={400} variant={'solid'} href={'/auth/login'} colorScheme = "transparent" _hover={{color: "gray.300"}}>
             Sign In
           </Button>
           <Button
@@ -96,9 +84,8 @@ export default function WithSubnavigation() {
             fontWeight={600}
             color={'teal'}
             bg={'white'}
-            href={'#'}
+            href={'/auth/signup'}
             _hover={{ bg: 'teal', color: 'white' }}
-            onClick = {gotoSignUpForm}
           >
             Sign Up
           </Button>

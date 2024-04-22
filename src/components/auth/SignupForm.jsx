@@ -70,7 +70,7 @@ const SignupForm = () => {
 
 
   return (
-    <Flex width = "full" align = "center" justifyContent = "center" mt = "5rem">
+    <Flex width = "full" align = "center" justifyContent = "center" my = "8rem">
       <Box p = {8} mt = {8} width={["100%", "80%", "60%", "50%"]} borderWidth={1} borderRadius={8} boxShadow = "lg">
         <Box textAlign = "center">
           <Heading mb={8}>Sign Up</Heading>

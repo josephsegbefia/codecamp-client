@@ -53,7 +53,7 @@ const PasswordResetForm = () => {
   }
 
   return (
-    <Flex width = "full" align = "center" justifyContent = "center" mt = "8rem">
+    <Flex width = "full" align = "center" justifyContent = "center" mt = "8rem" my = "10rem">
       <Box p = {8} mt = {8} width={["100%", "80%", "60%", "40%"]} borderWidth={1} borderRadius={8} boxShadow = "lg">
         {error && <ErrorMessage message = {error} />}
         {

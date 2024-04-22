@@ -41,7 +41,7 @@ const LoginForm = () => {
 
   }
   return (
-    <Flex width = "full" align = "center" justifyContent = "center" mt = "10rem">
+    <Flex width = "full" align = "center" justifyContent = "center" my = "10rem">
       <Box p = {8} mt = {8} width={["100%", "80%", "60%", "40%"]} borderWidth={1} borderRadius={8} boxShadow = "lg">
         <Box textAlign = "center">
           <Heading>Login</Heading>
