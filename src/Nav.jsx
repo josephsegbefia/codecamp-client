@@ -1,3 +1,7 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
+import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   Box,
   Flex,
@@ -20,11 +24,28 @@ import {
   ChevronDownIcon,
   ChevronRightIcon,
 } from '@chakra-ui/icons';
+import { AuthContext } from './context/auth.context'
 
 export default function WithSubnavigation() {
   const { isOpen, onToggle } = useDisclosure();
 
+  const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
 
+  const navigate = useNavigate();
+
+  console.log(isLoggedIn)
+
+  const gotoSignup = () => {
+    navigate('/auth/signup');
+  }
+
+  const gotoLogin = () => {
+    navigate('/auth/login');
+  }
+
+  const goHome = () => {
+    navigate('/');
+  }
 
   return (
     <Box>
@@ -58,8 +79,9 @@ export default function WithSubnavigation() {
             color={useColorModeValue('gray.800', 'white')}
             // onClick = {gotoHome}
             as = {'a'}
-            href = {'/'}
+            // href = {'/'}
             cursor = {'pointer'}
+            onClick={goHome}
           >
             c o d e c a m p
           </Text>
@@ -73,22 +95,48 @@ export default function WithSubnavigation() {
           direction={'row'}
           spacing={6}
         >
-          <Button as={'a'} fontSize={'sm'} fontWeight={400} variant={'solid'} href={'/auth/login'} colorScheme = "transparent" _hover={{color: "gray.300"}}>
-            Sign In
-          </Button>
-          <Button
-            as={'a'}
-            variant = {'outline'}
-            display={{ base: 'none', md: 'inline-flex' }}
-            fontSize={'sm'}
-            fontWeight={600}
-            color={'teal'}
-            bg={'white'}
-            href={'/auth/signup'}
-            _hover={{ bg: 'teal', color: 'white' }}
-          >
-            Sign Up
-          </Button>
+          {
+            !isLoggedIn && (
+              <Button as={'a'} fontSize={'sm'} fontWeight={400} variant={'solid'} colorScheme = "transparent" _hover={{color: "gray.300", cursor: "pointer"}} onClick={gotoLogin}>
+                Sign In
+              </Button>
+            )
+          }
+          {
+            !isLoggedIn && (
+              <Button
+                as={'a'}
+                variant = {'outline'}
+                display={{ base: 'none', md: 'inline-flex' }}
+                fontSize={'sm'}
+                fontWeight={600}
+                color={'teal'}
+                bg={'white'}
+                onClick={gotoSignup}
+                _hover={{ bg: 'teal', color: 'white', cursor: "pointer"}}
+              >
+                Sign Up
+              </Button>
+            )
+          }
+          {
+            isLoggedIn && (
+              <Button
+                as={'a'}
+                variant = {'outline'}
+                display={{ base: 'none', md: 'inline-flex' }}
+                fontSize={'sm'}
+                fontWeight={600}
+                color={'teal'}
+                bg={'white'}
+                // href={'/auth/signup'}
+                _hover={{ bg: 'teal', color: 'white' }}
+                onClick={logOutUser}
+            >
+              Log out
+            </Button>
+            )
+          }
         </Stack>
       </Flex>
       <Collapse in={isOpen} animateOpacity>

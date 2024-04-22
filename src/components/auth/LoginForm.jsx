@@ -1,17 +1,22 @@
 /* eslint-disable no-unused-vars */
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { useNavigate, Link } from 'react-router-dom'
 import { Flex, Text, Box, Heading, FormControl, FormLabel, Input, Button, InputGroup, InputRightElement, Icon } from '@chakra-ui/react';
 import { AiFillEyeInvisible } from "react-icons/ai";
 import { AiFillEye } from "react-icons/ai";
 import authService from '../../services/auth.service';
 import ErrorMessage from '../notifications/ErrorMessage';
+import { AuthContext } from '../../context/auth.context';
+
 
 const LoginForm = () => {
   // Form state values
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+
+
+  const { storeToken, authenticateUser, user } = useContext(AuthContext);
 
   const handlePasswordVisibility = () => setShowPassword(!showPassword);
 
@@ -28,6 +33,8 @@ const LoginForm = () => {
     const requestBody = { email, password };
       authService.login(requestBody)
         .then((response) => {
+          storeToken(response.data.authToken);
+          authenticateUser();
           setIsLoading(false);
           navigate('/');
       })
