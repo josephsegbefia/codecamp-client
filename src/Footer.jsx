@@ -1,4 +1,5 @@
-import React from 'react';
+/* eslint-disable react/prop-types */
+
 import {
   Box,
   Container,
@@ -15,6 +16,8 @@ import { FaTwitter, FaYoutube, FaInstagram } from 'react-icons/fa';
 // import { PlayStoreBadge } from '#/components/PlayStoreBadge';
 
 const ListHeader = ({ children }) => {
+
+
   return (
     <Text fontWeight={'500'} fontSize={'lg'} mb={2}>
       {children}
@@ -47,6 +50,7 @@ const SocialButton = ({ children, label, href }) => {
 };
 
 export default function LargeWithAppLinksAndSocial() {
+  const currentYear = new Date().getFullYear();
   return (
     <Box
       bg={useColorModeValue('gray.50', 'gray.900')}
@@ -121,7 +125,7 @@ export default function LargeWithAppLinksAndSocial() {
           justify={{ md: 'space-between' }}
           align={{ md: 'center' }}
         >
-          <Text>© 2022 Chakra Templates. All rights reserved</Text>
+          <Text>&copy; <span>{currentYear}</span> | c o d e c a m p |  All Rights Reserved.</Text>
           <Stack direction={'row'} spacing={6}>
             <SocialButton label={'Twitter'} href={'#'}>
               <FaTwitter />
