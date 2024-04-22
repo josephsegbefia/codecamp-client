@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { Box, Text } from '@chakra-ui/react'
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import WithSubnavigation from './Nav.jsx';
 import Home from './components/Home';
 import LoginForm from './components/auth/LoginForm';
 import SignupForm from './components/auth/SignupForm';
@@ -14,6 +15,9 @@ function App() {
 
   return (
     <Router>
+      <header>
+        <WithSubnavigation />
+      </header>
       <Routes>
       <Route path = '/' element = {<Home />} />
         <Route path = '/auth/login' element = {<LoginForm />} />
