@@ -10,7 +10,8 @@ import VerifyEmail from './components/auth/VerifyEmail';
 import ForgotPasswordForm from './components/auth/ForgotPasswordForm';
 import PasswordResetForm from './components/auth/PasswordResetForm';
 import LargeWithAppLinksAndSocial from './Footer.jsx';
-import SimpleSidebar from './components/userhome/SimpleSidebar.jsx';
+import UserDashboard from './components/userhome/UserDashboard.jsx';
+import Landing from './components/userhome/Landing.jsx';
 
 
 function App() {
@@ -27,7 +28,7 @@ function App() {
         <Route path = '/auth/verify-email' element={<VerifyEmail />} />
         <Route path = '/auth/forgot-password' element = {<ForgotPasswordForm />} />
         <Route path = '/auth/password-reset' element = {<PasswordResetForm />}/>
-        <Route path = '/learn/user' element = {<SimpleSidebar />} />
+        <Route path = '/dashboard' element = {<Landing />} />
       </Routes>
         <LargeWithAppLinksAndSocial />
     </Router>
