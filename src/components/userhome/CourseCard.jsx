@@ -1,11 +1,12 @@
 /* eslint-disable react/prop-types */
 // import React from 'react';
-import { Card, CardBody, CardHeader, Text, Button, Stack } from '@chakra-ui/react'
+import { Card, CardBody, CardHeader, Text, Button, Stack, Progress } from '@chakra-ui/react'
 
 
 const CourseCard = ({ path, name, lesson }) => {
   return (
     <Card width = "full">
+      <Progress value={80} color='teal'/>
       <CardHeader>
         <Text>{path}</Text>
         <Text fontWeight={"bold"}>{name}</Text>

@@ -56,7 +56,7 @@ const Landing = ({ signInMessage }) => {
 
         </Flex>
         <Box my = {4} textAlign = "left">
-            <HStack width = "100%" spacing={4}>
+            <HStack width = "100%" spacing={8}>
               <Box
                 width = "25%"
                 ml = "2rem"
