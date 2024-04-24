@@ -1,9 +1,11 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import React from 'react'
+import React, {useState} from 'react'
 import { Flex, Box, Icon } from '@chakra-ui/react';
 
-const MenuDrawerNavItem = ({ children, icon, gotoPage, page }) => {
+
+const MenuDrawerNavItem = ({ children, icon, gotoPage, page, active, pagePath }) => {
+
   return (
     <Box
       width = "100%"
@@ -14,6 +16,7 @@ const MenuDrawerNavItem = ({ children, icon, gotoPage, page }) => {
       onClick={() => gotoPage(page)}
     >
       <Flex
+        backgroundColor={(page === pagePath) ? 'cyan.400' : ''}
         width = "full"
         align="center"
         p="4"
@@ -22,15 +25,15 @@ const MenuDrawerNavItem = ({ children, icon, gotoPage, page }) => {
         role="group"
         cursor="pointer"
         _hover={{
-          bg: 'cyan.400',
-          color: 'white',
+          // bg: 'cyan.400',
+          color: 'teal.500',
         }}
       >
         <Icon
             mr="4"
             fontSize="20"
             _groupHover={{
-              color: 'white',
+              color: 'teal.500',
             }}
             as={icon}
           />

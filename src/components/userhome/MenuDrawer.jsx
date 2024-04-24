@@ -6,11 +6,11 @@ import {
 } from '@chakra-ui/react';
 import MenuDrawerContent from './MenuDrawerContent';
 
-const MenuDrawer = ({ gotoPage }) => {
+const MenuDrawer = ({ gotoPage, pagePath }) => {
 
   return (
     <Flex width = "full" id = "menu-drawer" height = "90vh" justifyContent = "center">
-      <MenuDrawerContent gotoPage = { gotoPage }/>
+      <MenuDrawerContent gotoPage = { gotoPage } pagePath = { pagePath }/>
     </Flex>
   )
 }

@@ -9,6 +9,7 @@ import UserDashboard from './UserDashboard';
 import UserLearning from './UserLearning';
 import UserProjects from './UserProjects';
 import SuccessMessage from '../notifications/SuccessMessage';
+import Settings from './Settings';
 
 const Landing = ({ signInMessage }) => {
   const [isFooterVisible, setIsFooterVisible] = useState(false);
@@ -43,7 +44,7 @@ const Landing = ({ signInMessage }) => {
 
 
   return (
-    <Flex width = "full" height = "100vh">
+    <Flex width = "full" height = "100vh" fontFamily={'monaco'} backgroundColor={'papayawhip'}>
 
       <Box p = {8} mt = {8} width = "100%">
         <Flex width = "full" justifyContent = "center" >
@@ -64,7 +65,7 @@ const Landing = ({ signInMessage }) => {
                 // overflowY="hidden"
                 // bottom={isFooterVisible ? 'auto' : '5rem'}
               >
-                <MenuDrawer gotoPage = {gotoPage} />
+                <MenuDrawer gotoPage = {gotoPage} pagePath = {page}/>
               </Box>
              <Box width = "80%"
                 // position = "relative"
@@ -76,6 +77,8 @@ const Landing = ({ signInMessage }) => {
 
               {page === 'dashboard' && (<UserDashboard />)}
               {page === 'learning' && (<UserLearning />)}
+              {page === 'projects' && (<UserProjects />)}
+              {page === 'settings' && <Settings />}
              </Box>
             </HStack>
         </Box>

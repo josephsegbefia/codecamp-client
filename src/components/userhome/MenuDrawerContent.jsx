@@ -15,13 +15,13 @@ const DrawerMenuItems = [
   { name: "Projects", page: "projects", icon: LuPuzzle },
   { name: "Settings", page: "settings", icon: IoMdSettings },
 ]
-const MenuDrawerContent = ({ gotoPage }) => {
+const MenuDrawerContent = ({ gotoPage, pagePath }) => {
   return (
     <Flex width = "full">
       <VStack width = "full">
         {
           DrawerMenuItems.map((item, index) => (
-            <MenuDrawerNavItem icon = {item.icon} key = {index} page = {item.page} gotoPage = {gotoPage}>{item.name}</MenuDrawerNavItem>
+            <MenuDrawerNavItem icon = {item.icon} key = {index} page = {item.page} gotoPage = {gotoPage} pagePath = {pagePath}>{item.name}</MenuDrawerNavItem>
           ))
         }
       </VStack>
