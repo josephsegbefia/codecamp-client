@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import { useState, useContext } from 'react';
 import { useNavigate, Link } from 'react-router-dom'
@@ -9,7 +10,7 @@ import ErrorMessage from '../notifications/ErrorMessage';
 import { AuthContext } from '../../context/auth.context';
 
 
-const LoginForm = () => {
+const LoginForm = ({ setSignInMessage }) => {
   // Form state values
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -36,7 +37,8 @@ const LoginForm = () => {
           storeToken(response.data.authToken);
           authenticateUser();
           setIsLoading(false);
-          navigate('/');
+          setSignInMessage("Sign in successful");
+          navigate('/learning?page=dashboard');
       })
         .catch((error) => {
           setError(error.response.data.message);

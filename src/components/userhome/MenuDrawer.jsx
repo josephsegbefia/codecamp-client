@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import {useEffect, useState} from 'react';
 import {
@@ -5,11 +6,11 @@ import {
 } from '@chakra-ui/react';
 import MenuDrawerContent from './MenuDrawerContent';
 
-const MenuDrawer = () => {
+const MenuDrawer = ({ gotoPage }) => {
 
   return (
-    <Flex width = "full" align = "center" justifyContent = "center" style ={{border: "2px solid green"}}>
-      <MenuDrawerContent />
+    <Flex width = "full" id = "menu-drawer" height = "90vh" justifyContent = "center">
+      <MenuDrawerContent gotoPage = { gotoPage }/>
     </Flex>
   )
 }

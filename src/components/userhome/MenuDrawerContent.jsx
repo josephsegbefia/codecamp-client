@@ -1,30 +1,31 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React from 'react'
-import { Box, VStack } from '@chakra-ui/react'
+import { Box, VStack, Flex} from '@chakra-ui/react'
 import MenuDrawerNavItem from './MenuDrawerNavItem';
 import { MdSpaceDashboard } from "react-icons/md";
 import { IoIosBookmarks } from "react-icons/io";
-import { GrProjects } from "react-icons/gr";
+import { LuPuzzle } from "react-icons/lu";
 import { IoMdSettings } from "react-icons/io";
 
 
 const DrawerMenuItems = [
-  { name: "Dashboard", icon: MdSpaceDashboard },
-  { name: "My Learning", icon: IoIosBookmarks},
-  { name: "Projects", icon: GrProjects },
-  { name: "Settings", icon: IoMdSettings }
+  { name: "Dashboard", page: "dashboard", icon: MdSpaceDashboard },
+  { name: "My Learning", page: "learning", icon: IoIosBookmarks},
+  { name: "Projects", page: "projects", icon: LuPuzzle },
+  { name: "Settings", page: "settings", icon: IoMdSettings },
 ]
-const MenuDrawerContent = () => {
+const MenuDrawerContent = ({ gotoPage }) => {
   return (
-    <Box width = "full" style={{border: "3px solid red"}}>
-      <VStack>
+    <Flex width = "full">
+      <VStack width = "full">
         {
           DrawerMenuItems.map((item, index) => (
-            <MenuDrawerNavItem icon = {item.icon} key = {index}>{item.name}</MenuDrawerNavItem>
+            <MenuDrawerNavItem icon = {item.icon} key = {index} page = {item.page} gotoPage = {gotoPage}>{item.name}</MenuDrawerNavItem>
           ))
         }
       </VStack>
-    </Box>
+    </Flex>
   )
 }
 

@@ -47,8 +47,13 @@ export default function WithSubnavigation() {
     navigate('/');
   }
 
+  const logOutAndGoHome = () => {
+    logOutUser();
+    goHome();
+  }
+
   return (
-    <Box>
+    <Box width = "full">
       <Flex
         bg={useColorModeValue('teal.500', 'teal.800')}
         color={useColorModeValue('gray.600', 'white')}
@@ -59,6 +64,7 @@ export default function WithSubnavigation() {
         borderStyle={'solid'}
         borderColor={useColorModeValue('gray.200', 'gray.900')}
         align={'center'}
+
       >
         <Flex
           flex={{ base: 1, md: 'auto' }}
@@ -131,7 +137,7 @@ export default function WithSubnavigation() {
                 bg={'white'}
                 // href={'/auth/signup'}
                 _hover={{ bg: 'teal', color: 'white' }}
-                onClick={logOutUser}
+                onClick={logOutAndGoHome}
             >
               Log out
             </Button>
